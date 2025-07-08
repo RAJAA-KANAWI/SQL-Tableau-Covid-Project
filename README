@@ -1,0 +1,91 @@
+# COVID-19 Data Exploration with SQL  
+### Portfolio Project – SQL Analysis
+
+This project demonstrates how to perform exploratory data analysis on COVID-19 datasets using **SQL Server**. The data includes COVID-19 deaths and vaccinations across different countries and continents. The goal is to extract insights on infection rates, mortality, vaccination progress, and trends over time.
+
+---
+
+## Data Source
+- **COVID-19 Deaths Dataset**  
+- **COVID-19 Vaccinations Dataset**  
+- Source: [Our World in Data](https://ourworldindata.org/covid-deaths)  
+- Database: `PortfolioProject`  
+- Tables:
+  - `CovidDeaths`
+  - `CovidVaccinations`
+
+---
+
+## Key Concepts & Queries Used
+
+### 1. Data Cleaning
+- Filtered out rows with null values in the `continent` column to exclude regions like cruise ships or unknown locations.
+
+### 2. Basic Exploration
+- Selected key columns like `location`, `date`, `total_cases`, `total_deaths`, `population`.
+- Ordered data to understand how the pandemic evolved in each country.
+
+### 3. Mortality Analysis
+```sql
+(total_deaths / total_cases) * 100 AS deathpercentage
+```
+- This shows the likelihood of dying after contracting COVID-19.
+
+### 4. Infection Rate Analysis
+```sql
+(total_cases / population) * 100 AS infectionrate
+```
+- Shows what percentage of a country’s population contracted COVID.
+
+### 5. Countries with Highest Impact
+- Used `GROUP BY` and `MAX()` to identify:
+  - Countries with the highest infection count.
+  - Countries with the highest death toll.
+
+### 6. Continental Aggregation
+- Breakdown of total deaths by continent.
+
+### 7. Global Stats
+- Aggregated global total cases, deaths, and calculated overall mortality rate.
+
+---
+
+## Vaccination Analysis
+
+### Vaccination Progress by Country
+Used `JOIN` between `CovidDeaths` and `CovidVaccinations` on `location` and `date`.
+
+```sql
+SUM(new_vaccinations) OVER (PARTITION BY location ORDER BY date) AS rollingpeoplevaccinated
+```
+- Calculated cumulative vaccination count per country over time.
+
+### Percentage of Population Vaccinated
+Created a temporary table `#percentagepopulationvaccinated` to store:
+- Population
+- New vaccinations
+- Rolling total of vaccinated people
+- % of population vaccinated
+
+### View Creation
+Saved the logic as a view for easy visualization access:
+```sql
+CREATE VIEW percentagepopulationvaccinated AS ...
+```
+
+---
+
+##  Tools & Technologies
+- Microsoft SQL Server
+- SQL (T-SQL)
+- Data from Our World in Data
+-  Visualization: Tableau 
+
+---
+
+##  Key Learnings
+- Hands-on experience with real-world health data.
+- Window functions, aggregates, joins, views, and temp tables.
+- Turning raw data into actionable insights.
+
+
