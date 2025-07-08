@@ -1,22 +1,25 @@
-# COVID-19 Data Exploration with SQL  
-### Portfolio Project – SQL Analysis
+
+
+
+COVID-19 Data Exploration with SQL  
+ Portfolio Project – SQL Analysis
 
 This project demonstrates how to perform exploratory data analysis on COVID-19 datasets using **SQL Server**. The data includes COVID-19 deaths and vaccinations across different countries and continents. The goal is to extract insights on infection rates, mortality, vaccination progress, and trends over time.
 
 ---
 
-## Data Source
-- **COVID-19 Deaths Dataset**  
-- **COVID-19 Vaccinations Dataset**  
-- Source: [Our World in Data](https://ourworldindata.org/covid-deaths)  
-- Database: `PortfolioProject`  
-- Tables:
+ Data Source:/
+ **COVID-19 Deaths Dataset**  
+ **COVID-19 Vaccinations Dataset**  
+ Source: [Our World in Data](https://ourworldindata.org/covid-deaths)  
+ Database: `PortfolioProject`  
+ Tables:
   - `CovidDeaths`
   - `CovidVaccinations`
 
 ---
 
-## Key Concepts & Queries Used
+ Key Concepts & Queries Used:/
 
 ### 1. Data Cleaning
 - Filtered out rows with null values in the `continent` column to exclude regions like cruise ships or unknown locations.
@@ -50,7 +53,7 @@ This project demonstrates how to perform exploratory data analysis on COVID-19 d
 
 ---
 
-## Vaccination Analysis
+ Vaccination Analysis:/
 
 ### Vaccination Progress by Country
 Used `JOIN` between `CovidDeaths` and `CovidVaccinations` on `location` and `date`.
@@ -75,15 +78,19 @@ CREATE VIEW percentagepopulationvaccinated AS ...
 
 ---
 
-##  Tools & Technologies
-- Microsoft SQL Server
-- SQL (T-SQL)
-- Data from Our World in Data
--  Visualization: Tableau 
+Tools & Technologies Used:/
+
+- **Database Management**: MySQL  
+- **Query Language**: SQL  
+- **Data Source**: Our World in Data (COVID-19 Dataset)  
+- **Visualization**: Tableau  
+  -  *COVID Deaths Dashboard* متوفر داخل المستودع بصيغة PDF
+
+
 
 ---
 
-##  Key Learnings
+  Key Learnings:/
 - Hands-on experience with real-world health data.
 - Window functions, aggregates, joins, views, and temp tables.
 - Turning raw data into actionable insights.
