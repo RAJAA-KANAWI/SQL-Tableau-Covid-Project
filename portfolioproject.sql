@@ -3,7 +3,7 @@ from portfolioproject..CovidDeaths
 where continent  is not null
 order by 3,4
 
--- comment out وضع الأمر التالي في الملاحظات ووقف تنفيذه مؤقتا
+-- 
 --select *
 --from portfolioproject..covidvaccinations
 --order by 3,4
